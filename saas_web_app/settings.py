@@ -220,5 +220,4 @@ django_heroku.settings(locals())
 
 
 
-DEBUG_COLLECTSTATIC=0
 
