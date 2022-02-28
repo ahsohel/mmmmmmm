@@ -180,7 +180,7 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, 'static-comp')
 
 
-DISABLE_COLLECTSTATIC=0
+DISABLE_COLLECTSTATIC=1
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
