@@ -203,5 +203,6 @@ ModelState.render = _new  # type: ignore
 
 
 django_heroku.settings(locals())
+DISABLE_COLLECTSTATIC=1
 
 
