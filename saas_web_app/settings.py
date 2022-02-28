@@ -206,6 +206,9 @@ ModelState.render = _new  # type: ignore
 
 
 django_heroku.settings(locals())
-DISABLE_COLLECTSTATIC=1
+
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 
 
