@@ -15,6 +15,8 @@ from django.contrib import messages
 from django.db.migrations.state import ModelState
 from typing import Generic
 
+import django_heroku
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,9 +28,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-(v$)%92l#mz)5^md71m*j9%!%0hun@yd_ywr-q@o+@@=vh_3$y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = True
+
 DEBUG = True
 
-ALLOWED_HOSTS = ['infinityApp.pythonanywhere.com', 'localhost', '127.0.0.1']
+
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -58,6 +63,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
 ]
 
 ROOT_URLCONF = 'saas_web_app.urls'
@@ -148,9 +155,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static'),
+# ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static-comp')
 
@@ -191,3 +198,10 @@ def _new(self, apps):
     return _original(self, apps)
 
 ModelState.render = _new  # type: ignore
+
+
+
+
+django_heroku.settings(locals())
+
+
