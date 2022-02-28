@@ -162,14 +162,15 @@ USE_TZ = True
 
 
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_ROOT = os.path.join(BASE_DIR, 'static-comp')
+
 STATIC_URL = '/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static-comp')
 
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static-comp'),
-# ]
-
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 
@@ -217,7 +218,7 @@ ModelState.render = _new  # type: ignore
 django_heroku.settings(locals())
 
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-# DEBUG_COLLECTSTATIC=1
+
+DEBUG_COLLECTSTATIC=0
 
